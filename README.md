@@ -58,7 +58,7 @@ EDU X addresses these challenges through:
 1. **Clone the repository**:
    ```bash
    git clone <repository-url>
-   cd hiii
+   cd edux
    ```
 
 2. **Install dependencies**:
@@ -96,12 +96,12 @@ npm run preview
 ### Hogwarts Hackathon
 **Location**: Gayatri Vidya Parishad College for Degree & P.G. Courses, Visakhapatnam, Andhra Pradesh
 
-Our team participated in the prestigious Hogwarts Hackathon, a 48-hour coding marathon that challenged participants to develop innovative solutions to real-world problems. The event brought together talented developers, designers, and entrepreneurs from across the region to collaborate on projects that could make a meaningful impact.
+Our team participated in the prestigious Hogwarts Hackathon, a 24-hour coding marathon that challenged participants to develop innovative solutions to real-world problems. The event brought together talented developers, designers, and entrepreneurs from across the region to collaborate on projects that could make a meaningful impact.
 
 ### Team Members
-- **Harpreet Singh** - Full-stack Developer & UI/UX Designer
-- **Dayna Mishra** - Backend Developer & AI Integration Specialist
-- **Pondara Akhil Behara** - Frontend Developer & Project Manager
+- **Harpreet Singh** - Frontend developer  & UI/UX Designer
+- **Dayna Mishra** - ppt designer & Project Manager
+- **Pondara Akhil Behara** - Full-stack Developer & Backend Developer & AI Integration Specialist & team leader
 
 ### Our Journey
 Over the course of two intense days, our team worked tirelessly to bring EDU X from concept to reality. We faced numerous challenges, from integrating multiple APIs to designing an intuitive user experience, but our diverse skill sets and collaborative spirit helped us overcome each obstacle.
