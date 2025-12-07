@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDU X</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/index.css">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              obsidian: '#050505',
+              charcoal: '#0a0a0a',
+              lava: '#FF4500', // Lava Orange
+              amber: '#FFBF00', // Amber Gold
+              glass: 'rgba(255, 255, 255, 0.05)',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            },
+            boxShadow: {
+              'glow': '0 0 20px rgba(255, 69, 0, 0.3)',
+              'glow-sm': '0 0 10px rgba(255, 191, 0, 0.2)',
+              'inner-glow': 'inset 0 0 20px rgba(255, 69, 0, 0.1)',
+              'glow-lg': '0 0 40px rgba(255, 69, 0, 0.5)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'pulse-medium': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #e5e5e5;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333; 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #FF4500; 
+      }
+      .glass-card {
+        background: rgba(15, 15, 15, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 69, 0, 0.15);
+      }
+      .lava-text {
+        background: linear-gradient(135deg, #FF4500, #FFBF00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .molten-beam {
+        background: linear-gradient(180deg, rgba(255,69,0,0) 0%, rgba(255,69,0,0.8) 50%, rgba(255,191,0,0) 100%);
+        filter: blur(8px);
+      }
+      .hero-grid {
+        background-image: linear-gradient(rgba(255, 69, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 69, 0, 0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+        mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+      }
+      
+      /* Enhanced Animations */
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      
+      .gradient-border {
+        position: relative;
+        background: #050505;
+        border-radius: 1rem;
+      }
+      
+      .gradient-border::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #FF4500, #FFBF00, #FF4500);
+        border-radius: inherit;
+        z-index: -1;
+        background-size: 300% 300%;
+        animation: gradientShift 3s ease infinite;
+      }
+      
+      /* Cursor Effect */
+      .cursor-effect {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #FF4500;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        mix-blend-mode: difference;
+        transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+      }
+      
+      .cursor-effect.focused {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 69, 0, 0.1);
+      }
+      
+      /* Responsive fixes */
+      @media (max-width: 768px) {
+        .hero-grid {
+          background-size: 20px 20px;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <!-- Custom cursor effect -->
+    <div class="cursor-effect hidden md:block"></div>
+  <script type="module" src="/index.tsx"></script>
+  
+  <!-- Enhanced cursor effect script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cursor = document.querySelector('.cursor-effect');
+      
+      if (cursor) {
+        // Show cursor effect only on desktop
+        if (window.innerWidth > 768) {
+          cursor.classList.remove('hidden');
+          
+          document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+          });
+          
+          document.addEventListener('mousedown', () => {
+            cursor.classList.add('focused');
+          });
+          
+          document.addEventListener('mouseup', () => {
+            cursor.classList.remove('focused');
+          });
+          
+          // Add hover effects to interactive elements
+          const interactiveElements = document.querySelectorAll('button, a, input, .glass-card');
+          interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+              cursor.classList.add('focused');
+            });
+            
+            el.addEventListener('mouseleave', () => {
+              cursor.classList.remove('focused');
+            });
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>
