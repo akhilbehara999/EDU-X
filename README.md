@@ -1,7 +1,3 @@
-# EDU X - Multilingual Smart Education Platform
-
-![EDU X Banner](https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6)
-
 ## Our Vision
 
 In our increasingly interconnected world, language should never be a barrier to education. Our vision with EDU X is to democratize learning by breaking down linguistic barriers that prevent millions of students from accessing quality educational content. We believe that every student deserves the opportunity to learn in their preferred language, regardless of their geographic location or native tongue.
